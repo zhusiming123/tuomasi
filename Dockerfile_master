@@ -1,0 +1,17 @@
+FROM harbor.office.tengyue360.com/ty-shuangshi/background-front-system:dev
+# FROM nginx
+LABEL anthor "huruyang@tengyue360.com"
+ADD default.conf /etc/nginx/conf.d/ 
+ADD nginx.conf /etc/nginx/
+# RUN mkdir teacher-static
+WORKDIR /usr/share/nginx/html/teacher-static/
+
+RUN rm -rf static && rm index.html 
+RUN cp -rf ./gray/* ./
+RUN rm -rf gray
+# RUN mkdir gray
+COPY dist gray
+RUN sed -i "s/gray\///g" ./index.html
+RUN sed -i "s/gray\///g" ./static/teacher-app/*
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

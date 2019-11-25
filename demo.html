@@ -1,0 +1,46 @@
+<script>
+let arr = [
+    {'name':'a','num':2},
+    {'name':'b','num':0},
+    {'name':'c','num':0},
+    {'name':'d','num':0},
+    {'name':'e','num':0},
+    {'name':'f','num':0},
+    {'name':'g','num':0},
+    {'name':'h','num':0}
+]
+let agg = []
+function Random(){
+    let num = 0
+    let sum = 0
+    let rom = 0
+    let res = 0
+    arr.forEach((item,index)=>{
+        num = num + item.num
+    })
+    num = num + arr.length
+    arr.forEach((item,index)=>{
+        sum = sum+1/(item.num+1)
+        item.weight = 1/(item.num+1)
+        item.sum  = sum
+    }) 
+    console.log(arr)
+    rom = Math.random()*sum
+    console.log(rom)
+    try {
+        arr.forEach((item,index)=>{
+            if( rom<=item.sum ){
+                res = arr[index]
+                console.log(res)
+                arr[index].num+=1
+                throw new Error()
+            }
+        })
+    } catch (error) {}
+}
+setInterval(()=>{
+    Random()
+    // debugger
+},5000)
+
+</script>

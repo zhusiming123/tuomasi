@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arr = [1,9,3,2,7,4,8,4]
+    var arr1 = arr.sort(function (x,y) {
+        if (x < y) {
+            return -1;
+        }
+        if (x > y) {
+            return 1;
+        }
+        return 0;
+       
+    })
+    // console.log(arr1)
+//     function sort(x,y) {
+//         if (x < y) {
+//             return -1;
+//         }
+//         if (x > y) {
+//             return 1;
+//         }
+//         return 0;
+//     }
+// var arr = [1,9,3,2,7,4,8,4]
+// console.log(arr.sort(sort))
+var Sort=function(arr){ 
+    for(var i=0;i<arr.length-1;i++){ 
+        for(var j=i+1;j<arr.length;j++){ 
+            // console.log(arr[i])
+            if(arr[i]>arr[j]){/*如果前面的数据比后面的大就交换位置*/
+                var list=arr[i]; 
+                arr[i]=arr[j]; 
+                arr[j]=list; 
+            }  
+            console.log(arr)
+        } 
+    }  
+    return arr; 
+} 
+console.log(Sort([10,10,1,2,4,6,7,89,7,4]))
+
+
+</script>
+</html>
